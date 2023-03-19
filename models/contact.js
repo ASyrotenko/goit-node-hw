@@ -18,6 +18,11 @@ const contactSchema = new Schema(
       type: Boolean,
       default: false,
     },
+    owner: {
+      type: Schema.Types.ObjectId,
+      ref: "user",
+      required: true,
+    },
   },
   {
     versionKey: false,
@@ -29,9 +34,9 @@ contactSchema.post("save", handleSchemaValidationError);
 const Contact = model("contact", contactSchema);
 
 const contactsAddSchema = Joi.object({
-  name: Joi.string().required(),
-  email: Joi.string().required(),
-  phone: Joi.string().required(),
+  name: Joi.string(),
+  email: Joi.string(),
+  phone: Joi.string(),
   favorite: Joi.bool(),
 });
 
