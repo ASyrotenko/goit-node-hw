@@ -13,4 +13,6 @@ router.post("/login", validationMiddleware, ctrlWrapper(ctrl.login));
 
 router.get("/current", auth, ctrlWrapper(ctrl.getCurrentUser));
 
+router.get("/logout", auth, ctrlWrapper(ctrl.logout));
+
 module.exports = router;
