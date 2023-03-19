@@ -9,4 +9,6 @@ const router = express.Router();
 
 router.post("/register", validationMiddleware, ctrlWrapper(ctrl.register));
 
+router.post("/login", validationMiddleware, ctrlWrapper(ctrl.login));
+
 module.exports = router;
