@@ -44,4 +44,7 @@ const schemas = {
   updateFavoriteScheme,
 };
 
-module.exports = { Contact, schemas };
+module.exports = {
+  Contact,
+  schemas,
+};
