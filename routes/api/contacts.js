@@ -1,12 +1,12 @@
 const express = require("express");
-
 const {
   validation,
   ctrlWrapper,
   isValidId,
   auth,
 } = require("../../middlewares");
-const { schemas } = require("../../models/contact");
+const { schemas } = require("../../utils/validation");
+
 const { contacts: ctrl } = require("../../controllers");
 
 const validationMiddleware = validation(schemas.contactsAddSchema);

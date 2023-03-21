@@ -5,7 +5,7 @@ const { users: ctrl } = require("../../controllers");
 const {
   joiUserSchema,
   joiUpdateSubscriptionSchema,
-} = require("../../models/user");
+} = require("../../utils/validation");
 
 const validationMiddleware = validation(joiUserSchema);
 const router = express.Router();

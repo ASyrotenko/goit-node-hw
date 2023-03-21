@@ -6,7 +6,7 @@ const updateSubscription = async (req, res) => {
   const { _id } = req.user;
   const user = await User.findById(_id);
   if (!user) {
-    throw RequestError(401, "Not authorized");
+    throw new RequestError(401, "Not authorized");
   }
   await User.findByIdAndUpdate(_id, { subscription });
   res.json({

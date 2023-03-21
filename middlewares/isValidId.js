@@ -5,8 +5,11 @@ const isValidId = (req, _, next) => {
   const { contactId } = req.params;
   const isCorrectId = isValidObjectId(contactId);
   if (!isCorrectId) {
-    const error = RequestError(400, `${contactId} is not correct id format`);
-    next(error);
+    const error = new RequestError(
+      400,
+      `${contactId} is not correct id format`
+    );
+    return next(error);
   }
   next();
 };
