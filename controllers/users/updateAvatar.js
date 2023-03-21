@@ -1,11 +1,15 @@
 const fs = require("fs/promises");
 const path = require("path");
 const { User } = require("../../models");
+const { resizeImg } = require("../../helpers");
 
 const avatarsDir = path.join(__dirname, "../../", "public", "avatars");
 
 const updateAvatar = async (req, res) => {
   const { path: tempUpload, originalname } = req.file;
+
+  await resizeImg(tempUpload, 250, 250);
+
   const { _id } = req.user;
   const imageName = `${_id}_${originalname}`;
   try {
