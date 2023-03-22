@@ -13,7 +13,7 @@ const login = async (req, res) => {
     ? bcrypt.compareSync(password, user.password)
     : false;
   if (!user || !passCompare) {
-    throw RequestError(401, "Email or password is wrong");
+    throw new RequestError(401, "Email or password is wrong");
   }
   const payload = {
     id: user._id,
