@@ -15,4 +15,12 @@ const joiUpdateSubscriptionSchema = Joi.object({
     .required(),
 });
 
-module.exports = { joiUserSchema, joiUpdateSubscriptionSchema };
+const joiVerifyEmailSchema = Joi.object({
+  email: Joi.string().required(),
+});
+
+module.exports = {
+  joiUserSchema,
+  joiUpdateSubscriptionSchema,
+  joiVerifyEmailSchema,
+};
